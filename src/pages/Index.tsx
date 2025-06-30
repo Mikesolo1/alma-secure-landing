@@ -1,6 +1,5 @@
-
 import { useEffect, useState } from 'react';
-import { Shield, Lock, FileCheck, Users, CheckCircle, ArrowRight, Star, Zap, Globe, Eye, Database, Settings } from 'lucide-react';
+import { Shield, Lock, FileCheck, Users, CheckCircle, ArrowRight, Star, Zap, Globe, Eye, Database, Settings, BookOpen, MessageCircle, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -309,6 +308,97 @@ const Index = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Read More Section */}
+      <section className="section-spacing">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              Читать <span className="text-cyber-blue">подробнее</span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Актуальные материалы по 152-ФЗ, изменениям в законодательстве и практике применения
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8 mb-12">
+            {[
+              {
+                title: "Новые требования 152-ФЗ в 2025 году",
+                description: "Разбор ключевых изменений и их влияние на бизнес. Что изменилось в штрафах и требованиях к защите ПДн.",
+                date: "15 января 2025",
+                readTime: "7 мин",
+                color: "cyber-blue"
+              },
+              {
+                title: "Практическое руководство по внедрению УЗ-2",
+                description: "Пошаговый план внедрения мер защиты информации второго уровня. Чек-лист обязательных действий.",
+                date: "8 января 2025",
+                readTime: "12 мин",
+                color: "cyber-green"
+              },
+              {
+                title: "Типичные ошибки при подготовке к проверке",
+                description: "Анализ частых нарушений и способы их избежать. Реальные кейсы из практики наших экспертов.",
+                date: "3 января 2025",
+                readTime: "9 мин",
+                color: "cyber-purple"
+              }
+            ].map((article, index) => (
+              <Card key={index} className={`bg-card border-${article.color}/30 hover:border-${article.color}/60 transition-all duration-300 hover:scale-105 cyber-glow group cursor-pointer`}>
+                <CardHeader>
+                  <div className={`w-12 h-12 bg-${article.color}/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-${article.color}/20 transition-colors duration-300`}>
+                    <BookOpen className={`w-6 h-6 text-${article.color}`} />
+                  </div>
+                  <CardTitle className="text-xl line-clamp-2">{article.title}</CardTitle>
+                  <div className="flex items-center gap-4 text-sm text-gray-400">
+                    <span>{article.date}</span>
+                    <span>•</span>
+                    <span>{article.readTime}</span>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-300 mb-4 line-clamp-3">{article.description}</p>
+                  <div className="flex items-center gap-2 text-cyber-blue group-hover:text-cyber-blue-light transition-colors duration-300">
+                    <span className="text-sm font-medium">Читать далее</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Telegram Channel Block */}
+          <div className="max-w-4xl mx-auto">
+            <Card className="bg-gradient-to-r from-cyber-blue/10 to-cyber-green/10 border-cyber-blue/30 cyber-glow">
+              <CardContent className="p-8 text-center">
+                <div className="flex justify-center mb-6">
+                  <div className="w-16 h-16 bg-cyber-blue/20 rounded-full flex items-center justify-center animate-pulse-slow">
+                    <MessageCircle className="w-8 h-8 text-cyber-blue" />
+                  </div>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                  Подписывайтесь на наш <span className="text-cyber-blue">Telegram канал</span>
+                </h3>
+                <p className="text-lg text-gray-300 mb-6 max-w-2xl mx-auto">
+                  Оперативные новости по 152-ФЗ, разборы практических кейсов, ответы на вопросы экспертов и анонсы вебинаров
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <Button size="lg" className="bg-cyber-blue hover:bg-cyber-blue-light transition-all duration-300 cyber-glow text-lg px-8 py-4">
+                    <MessageCircle className="mr-2 w-5 h-5" />
+                    Перейти в Telegram
+                    <ExternalLink className="ml-2 w-4 h-4" />
+                  </Button>
+                  <div className="flex items-center gap-2 text-gray-400">
+                    <Users className="w-4 h-4" />
+                    <span>Уже подписались 2,847 специалистов</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
